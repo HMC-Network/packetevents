@@ -344,7 +344,11 @@ public class WrapperPlayServerUpdateAttributes extends PacketWrapper<WrapperPlay
 
         @Deprecated
         public String getKey() {
-            return this.getAttribute().getName().toString();
+            Attribute attr = this.getAttribute();
+            if (attr == null) {
+                return "unknown_attribute";
+            }
+            return attr.getName().toString();
         }
 
         @Deprecated
